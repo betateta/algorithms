@@ -12,7 +12,8 @@ public class Algorithms {
         /* всегда ищем отрицательное число, чтобы полностью пройти по массиву */
 
         linearSearch(getRandomUnsortedArray(10),-1);
-        binarySearch(getRandomSortedArray(10),-1);
+        binarySearch(getRandomSortedArray(10),0);
+        binarySearch(getRandomSortedArray(10),9);
         linearSearch(getRandomUnsortedArray(100),-1);
         binarySearch(getRandomSortedArray(100),-1);
         linearSearch(getRandomUnsortedArray(1000),-1);
@@ -58,11 +59,17 @@ public class Algorithms {
         Integer currentIndex;
         /* диапазон */
         Integer startIndex = 0;
-        Integer endIndex = array.length;
+        Integer endIndex = array.length - 1;
 
-        for (int i = 0; i < array.length; i++) {
-            currentIndex = (endIndex - startIndex) / 2;
+        //граничный случай
+        if (Objects.equals(number, array[endIndex])) {
+            printTime(startTime);
+            return endIndex;
+        }
+        while (startIndex < endIndex) {
+            currentIndex = (startIndex + endIndex) >> 1;
             if (Objects.equals(number, array[currentIndex])) {
+                printTime(startTime);
                 return currentIndex;
             } else if (number < array[currentIndex]) {
                 endIndex = currentIndex;
