@@ -43,6 +43,7 @@ public class Algorithms {
             System.out.println(integer);
         }
 
+        //мин, макс и средние значения в массиве
         ArraysCommons arraysCommons = new ArraysCommons();
         arraysCommons.printArrayInfo(Utils.getRandomUnsortedArray(10));
 
