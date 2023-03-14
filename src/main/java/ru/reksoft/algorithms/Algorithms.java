@@ -21,12 +21,6 @@ public class Algorithms {
             System.out.println(o);
         }
 
-        // Исключить число из массива
-        Integer[] excludeResult = compare.excludeNumber(new Integer[]{0, 1, 2, 2, 3, 0, 4, 2}, 2);
-        for (Integer integer : excludeResult) {
-            System.out.println(integer);
-        }
-
         //Сортировка выбором
         Sorting sorting = new Sorting();
         Integer[] unsortedArray = Utils.getRandomUnsortedArray(10);
@@ -43,6 +37,14 @@ public class Algorithms {
             System.out.println(integer);
         }
 
+        // Исключить число из массива
+        Integer[] excludeResult = compare.excludeNumber(new Integer[]{0, 1, 2, 2, 3, 0, 4, 2}, 2);
+        for (Integer integer : excludeResult) {
+            System.out.println(integer);
+        }
+
+        ArraysCommons arraysCommons = new ArraysCommons();
+        arraysCommons.printArrayInfo(Utils.getRandomUnsortedArray(10));
 
 
     }

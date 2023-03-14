@@ -42,7 +42,7 @@ public class Compare {
                 index++;
             }
         }
-        Integer[] result = new Integer[index + 1];
+        Integer[] result = new Integer[index];
         System.arraycopy(temp, 0, result, 0, result.length);
         return result;
     }
