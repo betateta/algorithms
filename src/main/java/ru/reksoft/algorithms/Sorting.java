@@ -14,7 +14,7 @@ public class Sorting {
      */
     public Integer[] bubbleSort(Integer[] unsortedArray) {
         boolean isSorted = false;
-        Integer currentIndex = 0;
+        int currentIndex = 0;
         while (!isSorted) {
             isSorted = true;
             while (currentIndex < unsortedArray.length - 1) {
@@ -35,11 +35,26 @@ public class Sorting {
 
     /**
      * Сортировка выбором
-     * @param unsortedArray неотсортированный массив
+     * @param array неотсортированный массив
      * @return отсортированный массив
      */
-    public Integer[] selectionSort(Integer unsortedArray) {
-
+    public Integer[] selectionSort(Integer[] array) {
+        for (int i = 0; i < array.length; i++) {
+            int currentIndex = i;
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] < array[currentIndex]) {
+                    currentIndex = j;
+                }
+            }
+            if (i != currentIndex) {
+                //swap
+                Integer temp = array[i];
+                array[i] = array[currentIndex];
+                array[currentIndex] = temp;
+            }
+        }
+        return array;
     }
+
 
 }

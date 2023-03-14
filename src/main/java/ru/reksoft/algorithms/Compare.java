@@ -6,6 +6,7 @@
 package ru.reksoft.algorithms;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Compare {
     /**
@@ -22,6 +23,28 @@ public class Compare {
                 a[i] = null;
             }
         }
-        return Arrays.stream(a).filter(num -> num != null).toArray();
+        return Arrays.stream(a).filter(Objects::nonNull).toArray();
     }
+
+    /**
+     * Из исходного массива исключаем число
+     * @param array массив
+     * @param number число
+     * @return массив
+     */
+    public Integer[] excludeNumber(Integer[] array, Integer number) {
+        Integer[] temp = new Integer[array.length];
+        //индекс последнего перенесенного эл-та
+        int index = 0;
+        for (Integer integer : array) {
+            if (!integer.equals(number)) {
+                temp[index] = integer;
+                index++;
+            }
+        }
+        Integer[] result = new Integer[index + 1];
+        System.arraycopy(temp, 0, result, 0, result.length);
+        return result;
+    }
+
 }
