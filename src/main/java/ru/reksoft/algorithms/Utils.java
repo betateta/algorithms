@@ -44,4 +44,16 @@ public class Utils {
         long stop = System.nanoTime();
         // System.out.println("Затраченное время, нс: " + (stop - start));
     }
+
+    /**
+     * етод распечатывает массив
+     * @param items массив
+     * @param <T> тип
+     */
+    public static  <T> void printArray(T[] items) {
+        for (T item : items) {
+            System.out.println(item);
+        }
+
+    }
 }

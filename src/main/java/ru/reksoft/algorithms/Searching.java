@@ -66,6 +66,34 @@ public class Searching {
         return -1;
     }
 
+    /**
+     * Метод возвращает индекс первого найденного элемента
+     *  В случае, если элемент не найден вернется -1
+     * @param array отсортированный массив
+     * @param number искомое
+     * @param startIndex текущий индекс
+     * @param endIndex текущий индекс
+     * @return индекс
+     */
+    public static Integer binaryRecursiveSearch(Integer[] array, Integer number, Integer startIndex, Integer endIndex) {
+
+        Integer currentIndex = (startIndex + endIndex) >> 1;
+        /* условие продолжения работы */
+        if (startIndex <= endIndex) {
+            if (Objects.equals(number, array[currentIndex])) {
+                return currentIndex;
+            } else if (number < array[currentIndex]) {
+                endIndex = currentIndex - 1;
+            } else if (number > array[currentIndex]) {
+                startIndex = currentIndex + 1;
+            }
+            return binaryRecursiveSearch(array, number, startIndex, endIndex);
+        }
+        return -1;
+
+    }
+
+
 
 
 }

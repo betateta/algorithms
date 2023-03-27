@@ -6,6 +6,8 @@
 package ru.reksoft.algorithms;
 
 
+import static ru.reksoft.algorithms.Utils.getRandomSortedArray;
+
 public class Algorithms {
 
     @SuppressWarnings("checkstyle:JavadocMethod")
@@ -47,7 +49,12 @@ public class Algorithms {
         ArraysCommons arraysCommons = new ArraysCommons();
         arraysCommons.printArrayInfo(Utils.getRandomUnsortedArray(10));
 
+        //бинарный рекурсивный поиск
+        Integer[] sortedArray = getRandomSortedArray(10);
+        System.out.println("Рекурсивный поиск бинарный поиск: ");
+        System.out.println(Searching.binaryRecursiveSearch(sortedArray, 10, 0, (sortedArray.length - 1)));
 
     }
+
 
 }
