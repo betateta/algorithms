@@ -5,8 +5,9 @@
 
 package ru.reksoft.algorithms;
 
-
 import static ru.reksoft.algorithms.Utils.getRandomSortedArray;
+
+import java.util.Arrays;
 
 public class Algorithms {
 
@@ -24,16 +25,16 @@ public class Algorithms {
         }
 
         //Сортировка выбором
-        Sorting sorting = new Sorting();
+
         Integer[] unsortedArray = Utils.getRandomUnsortedArray(10);
-        Integer[] selectionSortResult = sorting.selectionSort(unsortedArray);
+        Integer[] selectionSortResult = Sorting.selectionSort(unsortedArray);
         System.out.println("Selection sort");
         for (Integer integer : selectionSortResult) {
             System.out.println(integer);
         }
 
         //Сортировка пузырьком
-        Integer[] bubbleSortResult = sorting.bubbleSort(unsortedArray);
+        Integer[] bubbleSortResult = Sorting.bubbleSort(unsortedArray);
         System.out.println("Bubble sort");
         for (Integer integer : bubbleSortResult) {
             System.out.println(integer);
@@ -53,6 +54,14 @@ public class Algorithms {
         Integer[] sortedArray = getRandomSortedArray(10);
         System.out.println("Рекурсивный поиск бинарный поиск: ");
         System.out.println(Searching.binaryRecursiveSearch(sortedArray, 10, 0, (sortedArray.length - 1)));
+
+        //быстрая сортировка
+        System.out.println("Быстрая сортировка");
+        Integer[] unsortedQuickArray = new Integer[]{20, 7, -6, 10, 1, 0, 17, 2, 3, 7};
+        System.out.println(Arrays.toString(unsortedQuickArray));
+        Sorting.quickSort(unsortedQuickArray, 0, unsortedArray.length - 1);
+        System.out.println(Arrays.toString(unsortedQuickArray));
+
 
     }
 
