@@ -5,7 +5,6 @@
 
 package ru.reksoft.algorithms;
 
-
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
@@ -100,10 +99,9 @@ public class Sorting {
 
     }
 
-
-
     /**
      * Слияние двух отсортированных массивов в один
+     *
      * @param array входной
      * @param start начальный индекс второго массива
      * @return отсортированный массив

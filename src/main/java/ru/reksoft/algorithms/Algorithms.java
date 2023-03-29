@@ -62,13 +62,17 @@ public class Algorithms {
         Sorting.quickSort(unsortedQuickArray, 1, unsortedQuickArray.length - 1);
         System.out.println(Arrays.toString(unsortedQuickArray));
 
-
         //сортировка слиянием
         System.out.println("сортировка слиянием");
         System.out.println(Arrays.toString(Sorting.mergeSort(new int[]{11, 7, 8, 80, 4, 2, 9, 1, -8, 0, 4})));
 
-        System.out.println("end");
+        //Проверка анаграмм
+        String s1 = "липа";
+        String s2 = "пила";
+        String s3 = "лапа";
 
+        System.out.println(Compare.isAnagram(s1, s2));// true
+        System.out.println(Compare.isAnagram(s1, s3));// false
 
 
     }

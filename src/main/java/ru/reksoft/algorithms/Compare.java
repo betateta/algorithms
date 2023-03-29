@@ -11,6 +11,7 @@ import java.util.Objects;
 public class Compare {
     /**
      * Метод сравнивает два отсортированных массива
+     *
      * @param a массив a
      * @param b массив b
      * @return разница между массивами
@@ -28,7 +29,8 @@ public class Compare {
 
     /**
      * Из исходного массива исключаем число
-     * @param array массив
+     *
+     * @param array  массив
      * @param number число
      * @return массив
      */
@@ -45,6 +47,22 @@ public class Compare {
         Integer[] result = new Integer[index];
         System.arraycopy(temp, 0, result, 0, result.length);
         return result;
+    }
+
+    public static boolean isAnagram(String s1, String s2) {
+        if (s1.length() != s2.length()) {
+            return false;
+        }
+        Character[] charObjectArray1 = s1.chars().mapToObj(c -> (char) c).toArray(Character[]::new);
+        Character[] charObjectArray2 = s2.chars().mapToObj(c -> (char) c).toArray(Character[]::new);
+        Character[] sorted1 = Arrays.stream(charObjectArray1).sorted().toArray(Character[]::new);
+        Character[] sorted2 = Arrays.stream(charObjectArray2).sorted().toArray(Character[]::new);
+        for (int i = 0; i < sorted1.length; i++) {
+            if (!sorted1[i].equals(sorted2[i])) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
