@@ -57,10 +57,18 @@ public class Algorithms {
 
         //быстрая сортировка
         System.out.println("Быстрая сортировка");
-        Integer[] unsortedQuickArray = new Integer[]{20, 7, -6, 10, 1, 0, 17, 2, 3, 7};
+        Integer[] unsortedQuickArray = new Integer[]{20, 7,-6};
         System.out.println(Arrays.toString(unsortedQuickArray));
-        Sorting.quickSort(unsortedQuickArray, 0, unsortedArray.length - 1);
+        Sorting.quickSort(unsortedQuickArray, 1, unsortedQuickArray.length - 1);
         System.out.println(Arrays.toString(unsortedQuickArray));
+
+
+        //сортировка слиянием
+        System.out.println("сортировка слиянием");
+        System.out.println(Arrays.toString(Sorting.mergeSort(new int[]{11, 7, 8, 80, 4, 2, 9, 1, -8, 0, 4})));
+
+        System.out.println("end");
+
 
 
     }

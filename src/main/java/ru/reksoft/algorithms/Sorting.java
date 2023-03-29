@@ -6,6 +6,9 @@
 package ru.reksoft.algorithms;
 
 
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
 public class Sorting {
     /**
      * Сортировка пузырьком
@@ -76,6 +79,63 @@ public class Sorting {
 
         return array;
     }
+
+    public static int[] mergeSort(int[] array) {
+        return mergeSortRecursive(array, array.length / 2);
+    }
+
+    private static int[] mergeSortRecursive(int[] array, int pivot) {
+        if (array.length <= 1) {
+            return array;
+        }
+
+        int[] left = Arrays.copyOfRange(array, 0, array.length / 2);
+        int[] right = Arrays.copyOfRange(array, left.length, array.length);
+
+        array = IntStream.concat(Arrays.stream(mergeSortRecursive(left, left.length / 2)),
+                                 Arrays.stream(mergeSortRecursive(right, right.length / 2)))
+                         .toArray();
+
+        return merge(array, pivot);
+
+    }
+
+
+
+    /**
+     * Слияние двух отсортированных массивов в один
+     * @param array входной
+     * @param start начальный индекс второго массива
+     * @return отсортированный массив
+     */
+    public static int[] merge(int[] array, Integer start) {
+        int indexA = 0;
+        int indexB = start;
+        int[] result = new int[array.length];
+
+        for (int i = 0; i < array.length; i++) {
+            //проверка границ массивов
+            if (indexA < start && indexB < array.length) {
+                if (array[indexA] < array[indexB]) {
+                    result[i] = array[indexA++];
+
+                } else if (array[indexA] > array[indexB]) {
+                    result[i] = array[indexB++];
+
+                } else if (array[indexA] == array[indexB]) {
+                    result[i] = array[indexA++];
+                    result[i + 1] = array[indexB++];
+                    i++;
+                }
+            } else if (indexA >= start) {
+                result[i] = array[indexB++];
+            } else if (indexB >= array.length - 1) {
+                result[i] = array[indexA++];
+            }
+        }
+        return result;
+    }
+
 
     /**
      * Разбивка массива на части
