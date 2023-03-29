@@ -79,6 +79,12 @@ public class Sorting {
         return array;
     }
 
+    /**
+     * Сортировка слиянием
+     * @param array неотсортированный массив
+     * @return отсортированный массив
+     */
+
     public static int[] mergeSort(int[] array) {
         return mergeSortRecursive(array, array.length / 2);
     }
@@ -106,7 +112,7 @@ public class Sorting {
      * @param start начальный индекс второго массива
      * @return отсортированный массив
      */
-    public static int[] merge(int[] array, Integer start) {
+    private static int[] merge(int[] array, Integer start) {
         int indexA = 0;
         int indexB = start;
         int[] result = new int[array.length];
